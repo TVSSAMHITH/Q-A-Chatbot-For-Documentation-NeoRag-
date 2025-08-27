@@ -1,0 +1,1540 @@
+{
+  "name": "Project",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "e20bf8e7-a284-4911-9158-79737d5b5f19",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -1648
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "b3784277-1746-477a-b78e-2ca303df8423",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "image/"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "58cd09cb-2657-41b0-86c1-7c9b8f499e90",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "text/plain"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "Plain Text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "1e0475d6-3c04-42d1-a758-b1a79ade7962",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "application/pdf"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "e5d9cde7-d9ff-4a2d-ba99-69b4e3b73521",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "text/csv"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "CSV"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "7ab50ace-fa94-4b7d-a255-2804994c454a",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "application/json"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "JSON"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "b62c9ad6-b076-4e6c-83d1-092770fef004",
+                    "operator": {
+                      "type": "string",
+                      "operation": "regex"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "^(application|text)/xml$"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "XML"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "ce3cce8a-f092-449f-8d56-931fb2bccced",
+                    "operator": {
+                      "type": "string",
+                      "operation": "regex"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "/^(application\\/vnd\\.ms-excel|application\\/vnd\\.openxmlformats-officedocument\\.spreadsheetml\\.sheet)$/"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "XLS, XLSX"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": false,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "78650dec-861f-4fcb-83a1-a9d80b61628f",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.mimeType }}",
+                    "rightValue": "application/rtf"
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "RTF"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "ignoreCase": true
+        }
+      },
+      "id": "55395997-7a94-4742-9d71-c2e116146e4f",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -2384,
+        -928
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "f81a904f-0307-4f41-90dc-cf8c238e1d29",
+      "name": "Convert to File1",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -1488
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "encoding": "utf8"
+        }
+      },
+      "id": "23c2c174-4b80-45ca-aff5-92f41dff3ef5",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -1488
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "ad19cd8d-40d4-4d2a-beeb-464affd96a36",
+      "name": "Convert to File2",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -1328
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "65bdf1b2-d14a-4cca-99b2-bb86fb18d161",
+      "name": "Convert to File3",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -1168
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "e3bcb2fe-a327-4a6d-9f0d-7f37884250f5",
+      "name": "Convert to File4",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -1008
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "ee936f01-2dd3-4b99-b04e-9fa166d73eb9",
+      "name": "Convert to File5",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -848
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "820676df-090f-4a06-b00c-e8372aa3742c",
+      "name": "Convert to File7",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -656
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "binaryPropertyName": "base64DataUrlBinary",
+        "options": {
+          "fileName": "={{ $json.fileName }}",
+          "mimeType": "={{ $json.mimeType }}"
+        }
+      },
+      "id": "0c63ef4a-6554-4b17-b1ed-194f3c65628a",
+      "name": "Convert to File8",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        -2080,
+        -496
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "base64DataBinary",
+        "options": {}
+      },
+      "id": "b16bd2c7-86ea-465a-b0ea-f270180051ba",
+      "name": "Extract from File2",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -1168
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {}
+      },
+      "id": "91a00463-09b7-4de0-b4b6-8fc284cca6b7",
+      "name": "Extract from File3",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -1008
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "xml",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {}
+      },
+      "id": "37e320ef-fc6c-41d0-af5b-70b8257f0a5e",
+      "name": "Extract from File4",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -848
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "xlsx",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {}
+      },
+      "id": "2cfc6f8a-c1ee-40a7-8382-826cca374692",
+      "name": "Extract from File6",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -656
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "rtf",
+        "binaryPropertyName": "base64DataUrlBinary",
+        "options": {}
+      },
+      "id": "ca797fc6-8e10-4b73-8c8b-44022c4444ab",
+      "name": "Extract from File7",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -496
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "base64DataBinary",
+        "options": {}
+      },
+      "id": "e921f073-e610-4c08-8aa4-7b4009b9801a",
+      "name": "Extract from File1",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        -1920,
+        -1328
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "798d2b50-6ded-4f43-ae8e-b3ecabaad650",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        -2688,
+        -640
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "extractedFile",
+        "options": {
+          "includeBinaries": false
+        }
+      },
+      "id": "f8b9f987-c0e9-437b-ba30-cd5dadaa2feb",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -2416,
+        -224
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "files",
+        "options": {
+          "includeBinary": true
+        }
+      },
+      "id": "d4be3a95-adb6-4e5b-afd1-f68ec0644013",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        -2896,
+        -640
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "textSplittingMode": "custom",
+        "options": {}
+      },
+      "id": "be30e991-37b5-4015-9f7a-1ded7d0dfc62",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [
+        -640,
+        -464
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 50,
+        "options": {}
+      },
+      "id": "ded532e0-e05f-452b-9b30-8be26e6881c3",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "position": [
+        -112,
+        -512
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": "nomic-embed-text:latest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOllama",
+      "typeVersion": 1,
+      "position": [
+        -672,
+        352
+      ],
+      "id": "a6177172-2c94-4d26-bbae-83b38398e302",
+      "name": "Embeddings Ollama",
+      "credentials": {
+        "ollamaApi": {
+          "id": "OJswYIyrYzZZ0GI8",
+          "name": "Ollama account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        -1120,
+        -544
+      ],
+      "id": "eff61502-444c-40d5-9e6d-ed77c35bacbc",
+      "name": "Qdrant Vector Store",
+      "credentials": {
+        "qdrantApi": {
+          "id": "0IWSBlT5eOFV2zh4",
+          "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "compulsary use the qdrant data",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        1456,
+        640
+      ],
+      "id": "07f6ae24-0896-42bf-84be-71184f979ac9",
+      "name": "Qdrant Vector Store1",
+      "credentials": {
+        "qdrantApi": {
+          "id": "0IWSBlT5eOFV2zh4",
+          "name": "QdrantApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-tesseractjs.tesseractNode",
+      "typeVersion": 1,
+      "position": [
+        -1120,
+        -1360
+      ],
+      "id": "b8b6f62b-0707-48b6-969c-d476911d56ec",
+      "name": "Tesseract"
+    },
+    {
+      "parameters": {
+        "resource": "graphDb",
+        "cypherQuery": "={{ $json.cypher }}"
+      },
+      "type": "n8n-nodes-neo4j.neo4j",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        -416
+      ],
+      "id": "c4bc1d41-6653-4947-ad6c-e82e43acb545",
+      "name": "ExecuteQuery graphDb",
+      "credentials": {
+        "neo4jApi": {
+          "id": "0EA7jWYWpv9oNRyK",
+          "name": "Neo4j account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.llmPrompt }}\nRespond ONLY with valid JSON.\nDo NOT include markdown code fences, backticks, or any explanations.\nand mainly give output reponse accordinf to the below code compulsary \n// Get raw output string from LLM\nconst raw = items[0].json.output || \"[]\";\n\n// Try parsing safely\nlet parsed = [];\ntry {\n  parsed = JSON.parse(raw);\n} catch (e) {\n  try {\n    parsed = JSON.parse(JSON.parse(raw));\n  } catch (err) {\n    parsed = [];\n  }\n}\n\n// Collect valid Cypher queries\nlet queries = [];\nfor (const obj of parsed) {\n  if (obj && typeof obj === \"object\" && obj.cypher && obj.cypher.trim()) {\n    let q = obj.cypher.trim();\n\n    // Remove trailing semicolons and any RETURN 'done'\n    q = q.replace(/RETURN\\s+'done';?/gi, \"\").trim();\n    if (q.endsWith(\";\")) q = q.slice(0, -1);\n\n    if (q) queries.push(q);\n  }\n}\n\n// Build final wrapped Cypher query\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => `CALL { ${q} RETURN 'q${i}' AS q${i} }`)\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `q${i}`).join(\", \")};`;\n}\n\n// Return as single item for Neo4j node\nreturn [{ json: { cypher: finalQuery } }];\n\n",
+        "options": {
+          "systemMessage": "You are a knowledge graph extraction assistant that outputs Neo4j Cypher queries.\n\nTask:\n- Extract all possible facts from the given text and represent them as a knowledge graph.\n- Directly output valid Cypher queries that use MERGE to create nodes and relationships.\n- Always return the result strictly as a JSON array.\n- Each fact must be a separate JSON object with a key \"cypher\".\n- Handle any number of entities, relations, and facts (N facts).\n\nFormat:\n[\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:EntityType1 {name: \\\"Entity1\\\"})\\nMERGE (b:EntityType2 {name: \\\"Entity2\\\"})\\nMERGE (a)-[:RELATION]->(b)\\n} RETURN 'done';\"\n  }\n]\n\nRules:\n- Do not output explanations, comments, or natural language.\n- Do not include markdown code fences (```json … ```).\n- Each Cypher statement MUST be inside `CALL { … } RETURN 'done';`.\n- Use concise entity names exactly as they appear in the text (no placeholders).\n- Relationship names must be UPPERCASE verbs.\n- If no relation exists, return an empty array: [].\n- Always generate one JSON object per fact.\n- Ensure the output JSON is always directly parseable by JavaScript `JSON.parse`.\n\nEntity types may include but are not limited to:\nPerson, Profession, Organization, Company, Institution, University, Event, Technology, Product, Place, City, Country, Concept, Disease, Symptom, Drug, Medicine, Dosage, Equipment, Treatment, Hospital, Condition, Book, Movie, WorkOfArt, Animal, Plant, Object.\n\nSpecial rules:\n- \"my name is X\" → `MERGE (X:Person {name:\"X\"})`\n- \"I am a [Profession]\" or \"[X] is a [Profession]\" → `(Person)-[:HAS_PROFESSION]->(Profession)`\n- \"X works at Y\" → `(Person)-[:WORKS_AT]->(Organization/Hospital)`\n- \"Y is in Z\" → `(Y)-[:LOCATED_IN]->(Z:Place/City/Country)`\n- Normalize dosage values (\"500mg\", \"2 tablets per day\")\n- Each query must end with `RETURN 'done';`\nand mainly give output reponse accordinf to the below code compulsary \n// Get raw output string from LLM\nconst raw = items[0].json.output || \"[]\";\n\n// Try parsing safely\nlet parsed = [];\ntry {\n  parsed = JSON.parse(raw);\n} catch (e) {\n  try {\n    parsed = JSON.parse(JSON.parse(raw));\n  } catch (err) {\n    parsed = [];\n  }\n}\n\n// Collect valid Cypher queries\nlet queries = [];\nfor (const obj of parsed) {\n  if (obj && typeof obj === \"object\" && obj.cypher && obj.cypher.trim()) {\n    let q = obj.cypher.trim();\n\n    // Remove trailing semicolons and any RETURN 'done'\n    q = q.replace(/RETURN\\s+'done';?/gi, \"\").trim();\n    if (q.endsWith(\";\")) q = q.slice(0, -1);\n\n    if (q) queries.push(q);\n  }\n}\n\n// Build final wrapped Cypher query\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => `CALL { ${q} RETURN 'q${i}' AS q${i} }`)\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `q${i}`).join(\", \")};`;\n}\n\n// Return as single item for Neo4j node\nreturn [{ json: { cypher: finalQuery } }];\n\nExamples:\n\nInput:\n\"My name is Samhith. I am a doctor. I work at City Hospital in New York.\"\nOutput:\n[\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Person {name: \\\"Samhith\\\"})\\n} RETURN 'done';\"\n  },\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Person {name: \\\"Samhith\\\"})\\nMERGE (b:Profession {name: \\\"Doctor\\\"})\\nMERGE (a)-[:HAS_PROFESSION]->(b)\\n} RETURN 'done';\"\n  },\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Person {name: \\\"Samhith\\\"})\\nMERGE (b:Hospital {name: \\\"City Hospital\\\"})\\nMERGE (a)-[:WORKS_AT]->(b)\\n} RETURN 'done';\"\n  },\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Hospital {name: \\\"City Hospital\\\"})\\nMERGE (b:City {name: \\\"New York\\\"})\\nMERGE (a)-[:LOCATED_IN]->(b)\\n} RETURN 'done';\"\n  }\n]\n\nInput:\n\"Elon Musk founded Tesla, and Tesla is headquartered in California.\"\nOutput:\n[\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Person {name: \\\"Elon Musk\\\"})\\nMERGE (b:Company {name: \\\"Tesla\\\"})\\nMERGE (a)-[:FOUNDED]->(b)\\n} RETURN 'done';\"\n  },\n  {\n    \"cypher\": \"CALL {\\nMERGE (a:Company {name: \\\"Tesla\\\"})\\nMERGE (b:Place {name: \\\"California\\\"})\\nMERGE (a)-[:HEADQUARTERED_IN]->(b)\\n} RETURN 'done';\"\n  }\n]\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        912,
+        -432
+      ],
+      "id": "c8153d51-6811-40dd-9b27-6106d9549c38",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "resource": "graphDb",
+        "cypherQuery": "={{ $json.cypher }}"
+      },
+      "type": "n8n-nodes-neo4j.neo4j",
+      "typeVersion": 1,
+      "position": [
+        192,
+        320
+      ],
+      "id": "147e66c0-56ce-48a8-b82a-c22f7de04516",
+      "name": "ExecuteQuery graphDb1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "neo4jApi": {
+          "id": "0EA7jWYWpv9oNRyK",
+          "name": "Neo4j account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        592,
+        1328
+      ],
+      "id": "230ef765-b267-480c-831e-06ffa2b0b1c0",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "UtDsgEczuMhcQqOB",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "={{ $json.extractedFile?.length && $json.extractedFile.filter((f) => Object.keys(f)?.length > 0).length > 0 ? \"List of File content(s): \\n \" + JSON.stringify($json.extractedFile.filter((f) => Object.keys(f)?.length > 0)) : '' }}\n\n{{ $('Webhook').item.json.body.chatInput }}\n\nmust and should include citations and accuracy score \n\nif no data is avilabe in qdratic vector datbse and neo4j knowldge graph you should give reponse based on the input",
+        "options": {
+          "systemMessage": "System Prompt (improved)\n\nYou are an AI assistant that integrates three capabilities:\n\nQdrant Vector Database (RAG) – retrieve semantically relevant documents.\n\nNeo4j Knowledge Graph – query structured entities and relationships.\n\nLarge Language Model (LLM) – reason, synthesize, and generate responses.\n\nCore Behavior\n\nAlways try to retrieve from Qdrant and Neo4j first.\n\nIf relevant information is found → ground the answer in those sources and include clear citations (doc IDs, snippets, or Neo4j entity names/IDs).\n\nIf no relevant information is found:\n\nIf the query is casual conversation (e.g., greetings, chitchat, small talk) → respond naturally as a friendly chatbot, without requiring citations.\n\nIf the query is knowledge-based and no data exists in Qdrant/Neo4j → respond using your general knowledge, but clearly mark it as “General Knowledge (no Qdrant/Neo4j sources available)”.\n\nWorkflow\n\nConvert the query into embeddings and search Qdrant.\n\nQuery Neo4j for related entities.\n\nCombine retrieved context → pass to LLM.\n\nIf nothing found, fallback to normal chatbot mode or general knowledge depending on query type.\n\nOutput Rules\n\nIf using retrieved data → always show citations (Qdrant doc IDs/snippets, Neo4j nodes/relationships).\n\nIf fallback to general knowledge → explicitly mark:\n\n“(General Knowledge – no Qdrant/Neo4j sources available)”\n\nIf casual chat → just respond naturally, no need to mention databases.\n\n✅ Example Behavior\n\nUser: “hello”\nAssistant: “Hello! How are you doing today?” (no citations, just natural chat)\n\nUser: “Where is India?”\nAssistant:\n“India is a country in South Asia… (General Knowledge – no Qdrant/Neo4j sources available)”\n\nUser: “What papers mention graph embeddings?”\nAssistant:\n“According to Qdrant doc#23 and Neo4j node#112, graph embeddings are used in…” (with citations)"
+        }
+      },
+      "id": "3bda9616-4d29-4392-8c8d-c4194f1b73a5",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1376,
+        192
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.extractedFile[0].text }}\nRespond ONLY with valid JSON.\nDo NOT include markdown code fences, backticks, or any explanations.\nand mainly give output reponse accoridng to the below code compulsary\n// Get raw input\nconst raw = items[0].json.output || \"[]\";\n\nlet parsedQueries = [];\ntry {\n  parsedQueries = JSON.parse(raw);\n  if (typeof parsedQueries === \"string\") {\n    parsedQueries = JSON.parse(parsedQueries);\n  }\n  if (!Array.isArray(parsedQueries)) {\n    parsedQueries = [];\n  }\n} catch (e) {\n  parsedQueries = [];\n}\n\nlet queries = [];\nfor (const obj of parsedQueries) {\n  if (obj && obj.cypher && typeof obj.cypher === \"string\" && obj.cypher.trim() !== \"\") {\n    queries.push(obj.cypher.trim().replace(/;$/, \"\"));\n  }\n}\n\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => {\n        // Extract RETURN part\n        const returnMatch = q.match(/RETURN\\s+(.+)/i);\n        let returnPart = returnMatch ? returnMatch[1].trim() : \"\";\n\n        // Remove RETURN from main query\n        let cleaned = q.replace(/RETURN[\\s\\S]*/i, \"\").trim();\n\n        // Ensure relationship var `r` exists if type(r) is referenced\n        if (returnPart.includes(\"type(r)\") && !cleaned.includes(\"[r]\")) {\n          cleaned = cleaned.replace(/-\\[\\]->/g, \"-[r]->\");\n        }\n\n        // Convert \"expr AS alias\" → \"alias: expr\"\n        let fixedReturn = returnPart\n          .split(\",\")\n          .map(part => {\n            const m = part.trim().match(/(.+)\\s+AS\\s+(\\w+)/i);\n            if (m) {\n              const expr = m[1].trim();\n              const alias = m[2].trim();\n              return `${alias}: ${expr}`;\n            }\n            return part.trim();\n          })\n          .join(\", \");\n\n        if (!fixedReturn) {\n          fixedReturn = \"result: p\";\n        }\n\n        // Final safe block\n        return `CALL { ${cleaned} RETURN collect({${fixedReturn}}) AS res${i} }`;\n      })\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `res${i}`).join(\", \")};`;\n}\n\nreturn [{ json: { cypher: finalQuery } }];\n",
+        "options": {
+          "systemMessage": "=You are a Neo4j Cypher query assistant.\n\nTask:\n- Convert natural language questions into valid Cypher queries that SEARCH existing data in a Neo4j knowledge graph.\n- Always return the result strictly as a JSON array.\n- Each query must be a separate JSON object with a key \"cypher\".\n- Handle any number of questions, entities, or relations (N queries).\n- Your output is only the Cypher queries wrapped in JSON. No explanations or natural language.\n\nFormat:\n[\n  { \"cypher\": \"MATCH ... RETURN ...\" },\n  { \"cypher\": \"MATCH ... RETURN ...\" }\n]\n\nRules:\n- Use only MATCH for querying. Never use MERGE or CREATE.\n- Relationship names must be in UPPERCASE verbs.\n- Entity names must be preserved exactly as they appear in the input text. Do not change capitalization, spelling, or formatting.\n- Always match nodes by `name` property when possible, e.g. `(p:Person {name:\"samhith\"})`.\n- Return meaningful properties with aliases, e.g. `RETURN p.name AS person`, `RETURN d.name AS disease`.\n- If the input is descriptive text (not a direct question), extract relevant entities and relations, then generate Cypher queries accordingly. If nothing useful can be extracted, return [].\n-Respond ONLY with valid JSON.\nDo NOT include markdown code fences, backticks, or any explanations.\n- Handle multiple entities and relations if mentioned in the input.\n- Always respect the insertion schema:\n  - Professions → `(Person)-[:HAS_PROFESSION]->(Profession)`\n  - Locations → `(Entity)-[:LOCATED_IN]->(Place/City/Country)`\n  - Workplaces → `(Person)-[:WORKS_AT]->(Organization/Hospital)`\n  - Treatments → `(Drug)-[:TREATS]->(Disease)`\n-and mainly give output reponse accoridng to the below code compulsary\n// Get raw input\nconst raw = items[0].json.output || \"[]\";\n\nlet parsedQueries = [];\ntry {\n  parsedQueries = JSON.parse(raw);\n  if (typeof parsedQueries === \"string\") {\n    parsedQueries = JSON.parse(parsedQueries);\n  }\n  if (!Array.isArray(parsedQueries)) {\n    parsedQueries = [];\n  }\n} catch (e) {\n  parsedQueries = [];\n}\n\nlet queries = [];\nfor (const obj of parsedQueries) {\n  if (obj && obj.cypher && typeof obj.cypher === \"string\" && obj.cypher.trim() !== \"\") {\n    queries.push(obj.cypher.trim().replace(/;$/, \"\"));\n  }\n}\n\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => {\n        // Extract RETURN part\n        const returnMatch = q.match(/RETURN\\s+(.+)/i);\n        let returnPart = returnMatch ? returnMatch[1].trim() : \"\";\n\n        // Remove RETURN from main query\n        let cleaned = q.replace(/RETURN[\\s\\S]*/i, \"\").trim();\n\n        // Ensure relationship var `r` exists if type(r) is referenced\n        if (returnPart.includes(\"type(r)\") && !cleaned.includes(\"[r]\")) {\n          cleaned = cleaned.replace(/-\\[\\]->/g, \"-[r]->\");\n        }\n\n        // Convert \"expr AS alias\" → \"alias: expr\"\n        let fixedReturn = returnPart\n          .split(\",\")\n          .map(part => {\n            const m = part.trim().match(/(.+)\\s+AS\\s+(\\w+)/i);\n            if (m) {\n              const expr = m[1].trim();\n              const alias = m[2].trim();\n              return `${alias}: ${expr}`;\n            }\n            return part.trim();\n          })\n          .join(\", \");\n\n        if (!fixedReturn) {\n          fixedReturn = \"result: p\";\n        }\n\n        // Final safe block\n        return `CALL { ${cleaned} RETURN collect({${fixedReturn}}) AS res${i} }`;\n      })\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `res${i}`).join(\", \")};`;\n}\n\nreturn [{ json: { cypher: finalQuery } }];\n\nEntity types may include but are not limited to:\nPerson, Profession, Organization, Company, Institution, University, Event, Technology, Product, Place, City, Country, Concept, Disease, Symptom, Drug, Medicine, Dosage, Equipment, Treatment, Hospital, Condition, Book, Movie, WorkOfArt, Animal, Plant, Object.\n\n### Examples\n\nInput: \"Who founded Tesla?\"\nOutput:\n[\n  { \"cypher\": \"MATCH (p:Person)-[:FOUNDED]->(c:Company {name:\\\"Tesla\\\"}) RETURN p.name AS founder;\" }\n]\n\nInput: \"List all drugs that treat Fever\"\nOutput:\n[\n  { \"cypher\": \"MATCH (d:Drug)-[:TREATS]->(c:Disease {name:\\\"Fever\\\"}) RETURN d.name AS drug;\" }\n]\n\nInput: \"Which diseases can paracetamol treat?\"\nOutput:\n[\n  { \"cypher\": \"MATCH (d:Drug {name:\\\"paracetamol\\\"})-[:TREATS]->(c:Disease) RETURN c.name AS disease;\" }\n]\n\nInput: \"What profession does samhith have?\"\nOutput:\n[\n  { \"cypher\": \"MATCH (p:Person {name:\\\"samhith\\\"})-[:HAS_PROFESSION]->(prof:Profession) RETURN prof.name AS profession;\" }\n]\n\nInput: \"Where is city hospital located?\"\nOutput:\n[\n  { \"cypher\": \"MATCH (h:Hospital {name:\\\"city hospital\\\"})-[:LOCATED_IN]->(place) RETURN place.name AS location;\" }\n]\n\nInput: \"Who works at city hospital?\"\nOutput:\n[\n  { \"cypher\": \"MATCH (p:Person)-[:WORKS_AT]->(h:Hospital {name:\\\"city hospital\\\"}) RETURN p.name AS person;\" }\n]\n\nInput: \"List all entities related to samhith\"\nOutput:\n[\n  { \"cypher\": \"MATCH (p:Person {name:\\\"samhith\\\"})-[r]->(e) RETURN type(r) AS relation, e.name AS entity;\" }\n]\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1264,
+        528
+      ],
+      "id": "08f831cd-aa4e-479f-8bf2-36aaa95effb3",
+      "name": "AI Agent2",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// Safely get the text value\nconst q = $input.first().json.extractedFile[0].text || \"\";\n\n// Build a strong prompt for universal knowledge graph triple generation\nconst prompt = `\nYou are a knowledge graph extraction assistant.\n\nTask:\n- Extract facts from the given text as triples.\n- Format: (Entity1:Type)-[RELATION]->(Entity2:Type)\n- Use UPPERCASE for RELATION names.\n- Each triple must be on its own line.\n- Use concise entity names (no extra words).\n- Do not add explanations, commentary, or natural language text.\n- If no relation exists, return nothing.\n\nValid Types include (but are not limited to):\nPerson, Doctor, Patient, Disease, Symptom, Drug, Medicine, Dosage, Equipment, Treatment, Hospital, Condition,\nOrganization, Company, Institution, University, Event, Technology, Product, Place, City, Country, Concept, Profession\n\nExamples:\n(Elon Musk:Person)-[FOUNDED]->(Tesla:Company)\n(OpenAI:Organization)-[HEADQUARTERED_IN]->(San Francisco:City)\n(Paracetamol:Drug)-[TREATS]->(Fever:Disease)\n(Patient John:Patient)-[DIAGNOSED_WITH]->(Diabetes:Disease)\n(Doctor Alice:Doctor)-[WORKS_AT]->(City Hospital:Hospital)\n(Aspirin:Drug)-[HAS_DOSAGE]->(500mg:Dosage)\n(CT Scanner:Equipment)-[USED_IN]->(MRI Scan:Treatment)\n(Paris:City)-[CAPITAL_OF]->(France:Country)\n\nText: \"${q}\"\n`;\n\nreturn [\n  {\n    json: {\n      text: q,\n      llmPrompt: prompt\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1216,
+        272
+      ],
+      "id": "6f9d2beb-2ab4-4233-a207-420a1733147d",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get raw input\nconst raw = items[0].json.output || \"[]\";\n\nlet parsedQueries = [];\ntry {\n  parsedQueries = JSON.parse(raw);\n  if (typeof parsedQueries === \"string\") {\n    parsedQueries = JSON.parse(parsedQueries);\n  }\n  if (!Array.isArray(parsedQueries)) {\n    parsedQueries = [];\n  }\n} catch (e) {\n  parsedQueries = [];\n}\n\nlet queries = [];\nfor (const obj of parsedQueries) {\n  if (obj && obj.cypher && typeof obj.cypher === \"string\" && obj.cypher.trim() !== \"\") {\n    queries.push(obj.cypher.trim().replace(/;$/, \"\"));\n  }\n}\n\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => {\n        // Extract RETURN part\n        const returnMatch = q.match(/RETURN\\s+(.+)/i);\n        let returnPart = returnMatch ? returnMatch[1].trim() : \"\";\n\n        // Remove RETURN from main query\n        let cleaned = q.replace(/RETURN[\\s\\S]*/i, \"\").trim();\n\n        // Ensure relationship var `r` exists if type(r) is referenced\n        if (returnPart.includes(\"type(r)\") && !cleaned.includes(\"[r]\")) {\n          cleaned = cleaned.replace(/-\\[\\]->/g, \"-[r]->\");\n        }\n\n        // Convert \"expr AS alias\" → \"alias: expr\"\n        let fixedReturn = returnPart\n          .split(\",\")\n          .map(part => {\n            const m = part.trim().match(/(.+)\\s+AS\\s+(\\w+)/i);\n            if (m) {\n              const expr = m[1].trim();\n              const alias = m[2].trim();\n              return `${alias}: ${expr}`;\n            }\n            return part.trim();\n          })\n          .join(\", \");\n\n        if (!fixedReturn) {\n          fixedReturn = \"result: p\";\n        }\n\n        // Final safe block\n        return `CALL { ${cleaned} RETURN collect({${fixedReturn}}) AS res${i} }`;\n      })\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `res${i}`).join(\", \")};`;\n}\n\nreturn [{ json: { cypher: finalQuery } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        592
+      ],
+      "id": "fdc56e69-cc06-4902-b6eb-8874d1499e39",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get raw output string from LLM\nconst raw = items[0].json.output || \"[]\";\n\n// Try parsing safely\nlet parsed = [];\ntry {\n  parsed = JSON.parse(raw);\n} catch (e) {\n  try {\n    parsed = JSON.parse(JSON.parse(raw));\n  } catch (err) {\n    parsed = [];\n  }\n}\n\n// Collect valid Cypher queries\nlet queries = [];\nfor (const obj of parsed) {\n  if (obj && typeof obj === \"object\" && obj.cypher && obj.cypher.trim()) {\n    let q = obj.cypher.trim();\n\n    // Remove trailing semicolons and any RETURN 'done'\n    q = q.replace(/RETURN\\s+'done';?/gi, \"\").trim();\n    if (q.endsWith(\";\")) q = q.slice(0, -1);\n\n    if (q) queries.push(q);\n  }\n}\n\n// Build final wrapped Cypher query\nlet finalQuery = \"\";\nif (queries.length > 0) {\n  finalQuery =\n    queries\n      .map((q, i) => `CALL { ${q} RETURN 'q${i}' AS q${i} }`)\n      .join(\"\\n\") +\n    `\\nRETURN ${queries.map((_, i) => `q${i}`).join(\", \")};`;\n}\n\n// Return as single item for Neo4j node\nreturn [{ json: { cypher: finalQuery } }];\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1344,
+        -448
+      ],
+      "id": "cea8f237-ffd5-4b5c-9591-32e4b9f43cfb",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over all items from Aggregate node\nfor (const item of $input.all()) {\n  const extracted = item.json.extractedFile?.[0]?.text || \"\";\n  \n  // Save the text into a new field\n  item.json.textContent = extracted;\n}\n\nreturn $input.all();\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1728,
+        480
+      ],
+      "id": "aeec39e2-5038-4756-a61c-4874def877e6",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b78c4981-155c-4b6e-bb2b-72b1f4b6b576",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -4432,
+        -400
+      ],
+      "id": "b552a67a-bc83-4fe2-ae5c-859cea78db24",
+      "name": "Webhook",
+      "webhookId": "b78c4981-155c-4b6e-bb2b-72b1f4b6b576"
+    },
+    {
+      "parameters": {
+        "jsCode": "const files = $input.all().at(0)?.binary\nconst isfilesSent = typeof files === 'object' && Object.keys(files)?.length\n\nif(isfilesSent){\n  return { files }\n}\n\nreturn $input.all()"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3648,
+        -576
+      ],
+      "id": "370a31df-8d06-42b1-a745-1c77b9e2f0f3",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "347bbcfe-a780-43c5-b121-aae2735f2f55",
+      "name": "Split Results",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        96,
+        -1232
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{$json[\"link\"]}}",
+        "responseFormat": "string",
+        "options": {}
+      },
+      "id": "587096d0-0a37-44a3-a518-8b7196dfac18",
+      "name": "Fetch Webpage",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        336,
+        -1232
+      ]
+    },
+    {
+      "parameters": {
+        "dataPropertyName": "body",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "text",
+              "cssSelector": "body"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4395d59-3ed0-435f-af63-0266a9622a4c",
+      "name": "Extract Text",
+      "type": "n8n-nodes-base.htmlExtract",
+      "typeVersion": 1,
+      "position": [
+        592,
+        -1232
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{ json: { content: $json.text.replace(/\\s+/g,' ').slice(0, 4000) } }];"
+      },
+      "id": "630081cc-d818-4b1c-bcfc-cc7401a10a74",
+      "name": "Clean Text",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        848,
+        -1232
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "e5dfd328-4af7-4493-84a6-7e54a47e313d",
+      "name": "Summarize Page",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        -1232
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "Your OpenAI API Key"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "c6fa8ab9-a717-4b9f-a15a-3c5ca2df6a5a",
+      "name": "Collect Summaries",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        -1232
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4",
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "a79ffe40-7a5e-4f21-bdc2-1b088ced10ff",
+      "name": "Final Summary",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        -1232
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "Your OpenAI API Key"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File2": {
+      "main": [
+        [
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File3": {
+      "main": [
+        [
+          {
+            "node": "Extract from File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File4": {
+      "main": [
+        [
+          {
+            "node": "Extract from File3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File5": {
+      "main": [
+        [
+          {
+            "node": "Extract from File4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File7": {
+      "main": [
+        [
+          {
+            "node": "Extract from File6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File8": {
+      "main": [
+        [
+          {
+            "node": "Extract from File7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File6": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File7": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Ollama": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tesseract": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExecuteQuery graphDb1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "ExecuteQuery graphDb1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "ExecuteQuery graphDb",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Results": {
+      "main": [
+        [
+          {
+            "node": "Fetch Webpage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Webpage": {
+      "main": [
+        [
+          {
+            "node": "Extract Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Text": {
+      "main": [
+        [
+          {
+            "node": "Clean Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Text": {
+      "main": [
+        [
+          {
+            "node": "Summarize Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize Page": {
+      "main": [
+        [
+          {
+            "node": "Collect Summaries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect Summaries": {
+      "main": [
+        [
+          {
+            "node": "Final Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a8b88c57-66cf-4a29-b169-b3c88bd5e1a9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "79811974637bc4e4740e2df041b49420bdcc8c78fb80e9a06b4fb3fadf9bc73e"
+  },
+  "id": "GoASoQxTZ9kstFh6",
+  "tags": []
+}
