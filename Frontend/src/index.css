@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NeoRAG Chat - Futuristic AI Design System
+All colors MUST be HSL. Glassmorphism and gradient-based theme.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Futuristic AI Theme */
+    --background: 240 10% 98%;
+    --foreground: 224 71% 4%;
+    
+    /* AI Gradient Colors - Blue to Purple to Cyan */
+    --ai-blue: 217 91% 60%;
+    --ai-purple: 263 70% 50%;
+    --ai-cyan: 189 94% 43%;
+    --ai-glow: 217 91% 60%;
+    
+    /* Glassmorphism Background Colors */
+    --glass-bg: 240 10% 98%;
+    --glass-border: 217 91% 60%;
+    --glass-shadow: 224 71% 4%;
+    
+    /* Message Bubble Colors */
+    --user-bubble: 217 91% 60%;
+    --user-bubble-foreground: 0 0% 100%;
+    --bot-bubble: 240 5% 96%;
+    --bot-bubble-foreground: 224 71% 4%;
+    
+    /* UI Components */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 217 91% 60%;
+    --radius: 1rem;
+    
+    /* Sidebar */
+    --sidebar-background: 240 10% 98%;
+    --sidebar-foreground: 224 71% 4%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 224 71% 4%;
+    --sidebar-border: 240 6% 90%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(263, 70%, 50%) 50%, hsl(189, 94%, 43%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(217, 91%, 60%, 0.1) 0%, hsla(189, 94%, 43%, 0.1) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsla(217, 91%, 60%, 0.3) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsla(224, 71%, 4%, 0.12);
+    --shadow-glow: 0 0 20px hsla(217, 91%, 60%, 0.3);
+    --shadow-message: 0 4px 16px hsla(224, 71%, 4%, 0.08);
+  }
+
+  .dark {
+    /* Dark Mode - Enhanced Futuristic Theme */
+    --background: 224 71% 4%;
+    --foreground: 240 10% 98%;
+    
+    /* Enhanced AI Colors for Dark Mode */
+    --ai-blue: 217 91% 65%;
+    --ai-purple: 263 70% 55%;
+    --ai-cyan: 189 94% 48%;
+    --ai-glow: 217 91% 65%;
+    
+    /* Dark Glassmorphism */
+    --glass-bg: 224 71% 4%;
+    --glass-border: 217 91% 65%;
+    --glass-shadow: 0 0% 100%;
+    
+    /* Dark Message Bubbles */
+    --user-bubble: 217 91% 65%;
+    --user-bubble-foreground: 224 71% 4%;
+    --bot-bubble: 240 7% 15%;
+    --bot-bubble-foreground: 240 10% 98%;
+    
+    /* Dark UI Components */
+    --card: 224 71% 4%;
+    --card-foreground: 240 10% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 240 10% 98%;
+    --primary: 217 91% 65%;
+    --primary-foreground: 224 71% 4%;
+    --secondary: 240 7% 15%;
+    --secondary-foreground: 240 10% 98%;
+    --muted: 240 7% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 189 94% 48%;
+    --accent-foreground: 224 71% 4%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 240 10% 98%;
+    --border: 240 7% 15%;
+    --input: 240 7% 15%;
+    --ring: 217 91% 65%;
+    
+    /* Dark Sidebar */
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 240 10% 98%;
+    --sidebar-primary: 217 91% 65%;
+    --sidebar-primary-foreground: 224 71% 4%;
+    --sidebar-accent: 240 7% 15%;
+    --sidebar-accent-foreground: 240 10% 98%;
+    --sidebar-border: 240 7% 15%;
+    --sidebar-ring: 217 91% 65%;
+    
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 65%) 0%, hsl(263, 70%, 55%) 50%, hsl(189, 94%, 48%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(217, 91%, 65%, 0.1) 0%, hsla(189, 94%, 48%, 0.1) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsla(217, 91%, 65%, 0.4) 0%, transparent 70%);
+    
+    /* Dark Shadows */
+    --shadow-glass: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+    --shadow-glow: 0 0 30px hsla(217, 91%, 65%, 0.4);
+    --shadow-message: 0 4px 16px hsla(0, 0%, 0%, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Glassmorphism utility classes */
+  .glass-morphism {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(var(--glass-border), 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-glow {
+    position: relative;
+  }
+  
+  .glass-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+}
+
+@layer components {
+  /* AI Typing Animation */
+  .typing-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+  
+  .typing-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: hsl(var(--ai-blue));
+    animation: typing-bounce 1.4s infinite ease-in-out;
+  }
+  
+  .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+  .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0s; }
+  
+  @keyframes typing-bounce {
+    0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glow Effect */
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
