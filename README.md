@@ -50,5 +50,4 @@ Troubleshooting
 
 Contributors & License
 Developed by TVSSAMHITH.
-License: (add your license info).
 Contributions welcome!
